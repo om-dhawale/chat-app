@@ -1,0 +1,25 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_URL=postgresql://postgres:3006@db:5432/chat_app
+      - JWT_SECRET=92845v3w6gv46c7987230oif064y7ydr879oc263171d8e7
+      - PORT=3000
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_PASSWORD=3006
+      - POSTGRES_DB=chat_app
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+  redis:
+    image: redis:7
+
+volumes:
+  postgres_data:
