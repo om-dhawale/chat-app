@@ -1,11 +1,9 @@
 import { WebSocketServer } from "ws";
 import jwt from "jsonwebtoken";
-import dotenv from 'dotenv';
 import { joinRoom, leaveRoom, broadcastToRoom } from "./room.js";
 import {saveMessage, getMessages} from "../controllers/messageController.js";
 import emailQueue from "../jobs/emailQueue.js";
 
-dotenv.config({ override: false });
 
 const initWebSocketServer = (server) => {
     const wss = new WebSocketServer({server});

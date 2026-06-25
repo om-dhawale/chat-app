@@ -2,7 +2,7 @@ import pool from '../db/pool.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import {registerSchema, loginSchema} from '../schemas/userSchema.js';
-import 'dotenv/config';
+// import 'dotenv/config';
 import AppError from '../errors/AppError.js';
 
 

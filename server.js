@@ -1,10 +1,8 @@
+import './env.js';
 import app from "./app.js";
-import dotenv from 'dotenv';
 import http from 'http';
 import initWebSocketServer from "./socket/websocketServer.js";
 import './jobs/emailWorker.js';
-
-dotenv.config({ override: false });
 
 const PORT = process.env.PORT || 3000;
 
